@@ -27,7 +27,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 * Controller for the Book concept.
 */
 
-@RequestMapping("/")
+@RequestMapping("/readinglist")
 @Controller
 // ----------- << AAAAAAFibltVb3RBh+A=>annotations
 // ----------- >>
@@ -42,7 +42,12 @@ public class BookController {
     // ----------- >>
     public String readersBooks(@PathVariable("reader") String reader, Model model) {
     // ----------- << AAAAAAFiblx0pXRxF5o=>method
-    // ----------- >>
+        List<Book> readingList = bookRepository.findByReader(reader);
+        if (readingList != null) {
+            model.addAttribute("books", readingList);
+        }
+        return "readingList";
+        // ----------- >>
     }
     /**
     * @param reader 
@@ -53,8 +58,11 @@ public class BookController {
     // ----------- << AAAAAAFibmKMZ3SHQCU=>annotations
     // ----------- >>
     public String addToReadingList(@PathVariable("reader") String reader, Book book) {
-    // ----------- << AAAAAAFibmKMZ3SHQCU=>method
-    // ----------- >>
+        // ----------- << method.body@AAAAAAFibmKMZ3SHQCU >>
+        book.setReader(reader);
+        bookRepository.save(book);
+        return "redirect:/{reader}";
+        // ----------- >>
     }
 // ----------- << AAAAAAFibltVb3RBh+A=>class-extras
     @Autowired
