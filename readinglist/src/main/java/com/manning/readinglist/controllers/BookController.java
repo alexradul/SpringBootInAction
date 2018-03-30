@@ -27,7 +27,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 * Controller for the Book concept.
 */
 
-@RequestMapping("/readinglist")
+@RequestMapping("/")
 @Controller
 // ----------- << AAAAAAFibltVb3RBh+A=>annotations
 // ----------- >>

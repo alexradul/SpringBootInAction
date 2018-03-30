@@ -44,17 +44,18 @@ public class Book {
     // ----------- >>
     private String author;
 
-    @NotNull
-    @Column(nullable=false)
+    @Column
     // ----------- << AAAAAAFiblfZ0nQtp2M=>annotations
     // ----------- >>
     private String reader;
 
-    @NotNull
-    @Column(nullable=false)
+    @Column
     // ----------- << AAAAAAFiblfk8XQ0e08=>annotations
     // ----------- >>
     private String isbn;
+
+    @Column
+    private String description;
 
     // ----------- << AAAAAAFiblU/qnPuW3U=>getId
     // ----------- >>
@@ -92,6 +93,14 @@ public class Book {
 
     public void setIsbn(String isbn) {
         this.isbn = isbn;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     // ----------- << AAAAAAFiblU/qnPuW3U=>equals
