@@ -14,50 +14,52 @@ import javax.persistence.*;
 import javax.validation.constraints.*;
 
 
-// ----------- << preserved-imports
+// ----------- << imports@AAAAAAFiblU/qnPuW3U= >>
 // ----------- >>
 
 @Entity
-// ----------- << AAAAAAFiblU/qnPuW3U=>annotations
+// ----------- << class.annotations@AAAAAAFiblU/qnPuW3U= >>
 // ----------- >>
 public class Book {
-    // ----------- << AAAAAAFiblU/qnPuW3U=>id
+    // ----------- << id.annotations@AAAAAAFiblU/qnPuW3U= >>
     // ----------- >>
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
     private Long id;
 
-    // ----------- << AAAAAAFiblU/qnPuW3U=>version
+    // ----------- << version.annotations@AAAAAAFiblU/qnPuW3U= >>
     // ----------- >>
     @Version
     private Long version;
 
     @NotNull
     @Column(nullable=false)
-    // ----------- << AAAAAAFible7D3QfDEY=>annotations
+    // ----------- << attribute.annotations@AAAAAAFible7D3QfDEY= >>
     // ----------- >>
     private String title;
 
     @NotNull
     @Column(nullable=false)
-    // ----------- << AAAAAAFiblfJ53Qmwfk=>annotations
+    // ----------- << attribute.annotations@AAAAAAFiblfJ53Qmwfk= >>
     // ----------- >>
     private String author;
 
     @Column
-    // ----------- << AAAAAAFiblfZ0nQtp2M=>annotations
+    // ----------- << attribute.annotations@AAAAAAFifLZ7AQRhJgs= >>
+    // ----------- >>
+    private String description;
+
+    @Column
+    // ----------- << attribute.annotations@AAAAAAFiblfZ0nQtp2M= >>
     // ----------- >>
     private String reader;
 
     @Column
-    // ----------- << AAAAAAFiblfk8XQ0e08=>annotations
+    // ----------- << attribute.annotations@AAAAAAFiblfk8XQ0e08= >>
     // ----------- >>
     private String isbn;
 
-    @Column
-    private String description;
-
-    // ----------- << AAAAAAFiblU/qnPuW3U=>getId
+    // ----------- << getId.annotations@AAAAAAFiblU/qnPuW3U= >>
     // ----------- >>
     public Long getId(){
         return id;
@@ -69,6 +71,10 @@ public class Book {
 
     public String getAuthor() {
         return author;
+    }
+
+    public String getDescription() {
+        return description;
     }
 
     public String getReader() {
@@ -87,6 +93,10 @@ public class Book {
         this.author = author;
     }
 
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
     public void setReader(String reader) {
         this.reader = reader;
     }
@@ -95,25 +105,15 @@ public class Book {
         this.isbn = isbn;
     }
 
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    // ----------- << AAAAAAFiblU/qnPuW3U=>equals
+    // ----------- << equals.annotations@AAAAAAFiblU/qnPuW3U= >>
     // ----------- >>
     @Override
     public boolean equals(Object obj) {
         if (super.equals(obj)) return true;
         if (getId() == 0) return false;
-        if (!(obj instanceof Book)) return false;
-
-        return (getId() == ((Book) obj).getId());
+        return obj instanceof Book && (getId() == ((Book) obj).getId());
     }
 
-// ----------- << AAAAAAFiblU/qnPuW3U=>class-extras
+// ----------- << class.extras@AAAAAAFiblU/qnPuW3U= >>
 // ----------- >>
 }

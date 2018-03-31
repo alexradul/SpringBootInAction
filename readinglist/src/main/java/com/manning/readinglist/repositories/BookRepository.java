@@ -14,15 +14,15 @@ import java.time.*;
 import com.manning.readinglist.domainconcepts.Book;
 import org.springframework.data.repository.*;
 import org.springframework.stereotype.Repository;
-// ----------- << preserved-imports
+// ----------- << imports@AAAAAAFiblU/qnPuW3U= >>
 import org.springframework.data.jpa.repository.JpaRepository;
 // ----------- >>
 
-// ----------- << AAAAAAFiblU/qnPuW3U=>annotations
+// ----------- << repository.annotations@AAAAAAFiblU/qnPuW3U= >>
 // ----------- >>
 @Repository
 public interface BookRepository extends JpaRepository<Book, Long> {
-// ----------- << AAAAAAFiblU/qnPuW3U=>repositoryMethods
+// ----------- << repository.methods@AAAAAAFiblU/qnPuW3U= >>
     List<Book> findByReader(String reader);
 // ----------- >>
 }

@@ -13,7 +13,7 @@ import java.time.*;
 import org.springframework.stereotype.Controller;
 
 import com.manning.readinglist.domainconcepts.Book;
-// ----------- << preserved-imports
+// ----------- << imports@AAAAAAFibltVb3RBh+A= >>
 import com.manning.readinglist.repositories.BookRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
@@ -29,7 +29,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @RequestMapping("/")
 @Controller
-// ----------- << AAAAAAFibltVb3RBh+A=>annotations
+// ----------- << class.annotations@AAAAAAFibltVb3RBh+A= >>
 // ----------- >>
 public class BookController {
     /**
@@ -38,16 +38,16 @@ public class BookController {
     */
 
     @GetMapping(value="/{reader}")
-    // ----------- << AAAAAAFiblx0pXRxF5o=>annotations
+    // ----------- << method.annotations@AAAAAAFiblx0pXRxF5o= >>
     // ----------- >>
     public String readersBooks(@PathVariable("reader") String reader, Model model) {
-    // ----------- << AAAAAAFiblx0pXRxF5o=>method
+    // ----------- << method.body@AAAAAAFiblx0pXRxF5o= >>
         List<Book> readingList = bookRepository.findByReader(reader);
         if (readingList != null) {
             model.addAttribute("books", readingList);
         }
         return "readingList";
-        // ----------- >>
+    // ----------- >>
     }
     /**
     * @param reader 
@@ -55,16 +55,16 @@ public class BookController {
     */
 
     @PostMapping("/{reader}")
-    // ----------- << AAAAAAFibmKMZ3SHQCU=>annotations
+    // ----------- << method.annotations@AAAAAAFibmKMZ3SHQCU= >>
     // ----------- >>
     public String addToReadingList(@PathVariable("reader") String reader, Book book) {
-        // ----------- << method.body@AAAAAAFibmKMZ3SHQCU >>
+    // ----------- << method.body@AAAAAAFibmKMZ3SHQCU= >>
         book.setReader(reader);
         bookRepository.save(book);
         return "redirect:/{reader}";
-        // ----------- >>
+    // ----------- >>
     }
-// ----------- << AAAAAAFibltVb3RBh+A=>class-extras
+// ----------- << class.extras@AAAAAAFibltVb3RBh+A= >>
     @Autowired
     BookRepository bookRepository;
 // ----------- >>
